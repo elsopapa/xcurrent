@@ -9,5 +9,5 @@ RUN wget -c http://dszbx01.bue299.comafi.com.ar/zabbix/xcurrent-server-v4.1.1.ta
 RUN chown -R 1001:1001 /opt/xcurrent-server-4.1.1-SNAPSHOT
 USER 1001
 #RUN /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start
-RUN top
+CMD ping localhost
 
