@@ -1,4 +1,4 @@
-FROM rhel7-minimal
+FROM rhel7
 ENV ACCEPT_EULA=Y 
 
 RUN \
