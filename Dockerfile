@@ -1,6 +1,5 @@
 FROM rhel7
 ENV ACCEPT_EULA=Y 
-RUN 
 RUN rpm -Uvh http://dszbx01.bue299.comafi.com.ar/zabbix/jre-8u211-linux-x64.rpm
 RUN \
     curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo && \
