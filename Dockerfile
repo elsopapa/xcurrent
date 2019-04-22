@@ -1,4 +1,4 @@
-FROM centos
+FROM rhel7-minimal
 ENV ACCEPT_EULA=Y 
 
 RUN \
