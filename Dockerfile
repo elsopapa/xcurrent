@@ -10,5 +10,5 @@ RUN wget -c http://dszbx01.bue299.comafi.com.ar/zabbix/xcurrent-server-v4.1.1.ta
 # Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:1001 /opt/xcurrent-server-4.1.1-SNAPSHOT
 USER 1001
-RUN "/opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start"
+RUN /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start
 
