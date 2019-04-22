@@ -1,6 +1,6 @@
 FROM rhel7
 ENV ACCEPT_EULA=Y 
-
+RUN curl http://dszbx01.bue299.comafi.com.ar/zabbix/ose.repo  > /etc/yum.repos.d/ose.repo
 RUN \
     curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo && \
     yum install -y mssql-tools wget && \
