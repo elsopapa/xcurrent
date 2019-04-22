@@ -3,7 +3,7 @@ ENV ACCEPT_EULA=Y
 RUN curl http://dszbx01.bue299.comafi.com.ar/zabbix/ose.repo  > /etc/yum.repos.d/ose.repo
 RUN \
     curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo && \
-    yum install -y mssql-tools wget && \
+    yum install -y mssql-tools wget bash && \
     yum clean all
 RUN rpm -Uvh http://dszbx01.bue299.comafi.com.ar/zabbix/jre-8u211-linux-x64.rpm
 RUN wget -c http://dszbx01.bue299.comafi.com.ar/zabbix/xcurrent-server-v4.1.1.tar.gz  -O - | tar -xz -C /opt/
