@@ -1,9 +1,9 @@
 #!/bin/sh
 # Fix permissions on the given directory to allow group
 # read/write of regular files and execute of directories.
-export USER_ID=$(id -u)
+
 export HOME=/opt/xcurrent-server-4.1.1-SNAPSHOT
-export GROUP_ID=$(id -g)
+
 
 
 # Add the grafana user to the $HOME/passwd file with the current
@@ -16,9 +16,14 @@ export GROUP_ID=$(id -g)
 #export NSS_WRAPPER_PASSWD=${HOME}/passwd
 #export NSS_WRAPPER_GROUP=/etc/group
 
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -g)
+envsubst < /etc/passwd.template > /tmp/passwd
+export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
+export NSS_WRAPPER_PASSWD=/tmp/passwd
+export NSS_WRAPPER_GROUP=/etc/group
 
-
-chown -R 1000 $HOME
+chown -R xcurrent $HOME
 chgrp -R 0 $HOME
 chmod -R g+rw $HOME
 find "$HOME" -type d -exec chmod g+x {} +
