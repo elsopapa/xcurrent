@@ -1,3 +1,4 @@
 #!/bin/bash
 #exec /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start
+wget -c http://dszbx01.bue299.comafi.com.ar/zabbix/xcurrent-server-v4.1.1.tar.gz  -O - | tar -xz -C /opt/
 exec ping localhost
