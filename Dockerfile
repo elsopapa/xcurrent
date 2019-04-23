@@ -14,7 +14,7 @@ COPY ./root /
 
 
 RUN /usr/bin/fix-permissions 
-USER 1000
+#USER 1000
 #ENTRYPOINT ["/usr/bin/rungrafana"]
 CMD ping localhost
 
