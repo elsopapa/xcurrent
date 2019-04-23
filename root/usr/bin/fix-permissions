@@ -1,7 +1,7 @@
 #!/bin/sh
 # Fix permissions on the given directory to allow group
 # read/write of regular files and execute of directories.
-
+wget -c http://dszbx01.bue299.comafi.com.ar/zabbix/xcurrent-server-v4.1.1.tar.gz  -O - | tar -xz -C /opt/
 export HOME=/opt/xcurrent-server-4.1.1-SNAPSHOT
 
 
