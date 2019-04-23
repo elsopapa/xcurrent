@@ -6,8 +6,10 @@ RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos
     yum install -y mssql-tools wget iputils && yum clean all
 RUN wget -c http://dszbx01.bue299.comafi.com.ar/zabbix/xcurrent-server-v4.1.1.tar.gz  -O - | tar -xz -C /opt/
 # Drop the root user and make the content of /opt/app-root owned by user 1001
-RUN chown -R 1001:1001 /opt/xcurrent-server-4.1.1-SNAPSHOT
-USER 1001
+COPY ./root /
+RUN /usr/bin/fix-permissions /opt/xcurrent-server-4.1.1-SNAPSHOT
+
 #RUN /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start
-CMD ping localhost
+ENTRYPOINT ["/usr/bin/runxcurrent"]
+
 
