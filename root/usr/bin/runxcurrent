@@ -1,9 +1,2 @@
 #!/bin/bash
-
-
-
-# Determine UID and GID under which the container is running
-export USER_ID=$(id -u)
-export GROUP_ID=$(id -g)
-
 exec /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start

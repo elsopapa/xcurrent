@@ -10,6 +10,6 @@ COPY ./root /
 RUN /usr/bin/fix-permissions /opt/xcurrent-server-4.1.1-SNAPSHOT
 
 #RUN /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start
-ENTRYPOINT ["/usr/bin/runxcurrent"]
-
+#ENTRYPOINT ["/usr/bin/rungrafana"]
+CMD ping localhost
 

@@ -2,7 +2,23 @@
 # Fix permissions on the given directory to allow group
 # read/write of regular files and execute of directories.
 export USER_ID=$(id -u)
-chown -R $USER_ID "$1"
+export HOME=/opt/xcurrent-server-4.1.1-SNAPSHOT
+export GROUP_ID=$(id -g)
+grep -v ^xcurrentd /etc/passwd > "${HOME}/passwd"
+
+# Add the grafana user to the $HOME/passwd file with the current
+# UID and GID
+echo "xcurrentd:x:${USER_ID}:${GROUP_ID}:xcurrentd user:${HOME}:/sbin/nologin" >> "${HOME}/passwd"
+
+# Point CentOS to this new passwd file instead of the system
+# passwd file to make sure the grafana user is correctly assigned
+export LD_PRELOAD=libnss_wrapper.so
+export NSS_WRAPPER_PASSWD=${HOME}/passwd
+export NSS_WRAPPER_GROUP=/etc/group
+
+
+
+chown -R xcurrentd "$1"
 chgrp -R 0 "$1"
 chmod -R g+rw "$1"
 find "$1" -type d -exec chmod g+x {} +
