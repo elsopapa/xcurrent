@@ -13,8 +13,9 @@ RUN wget -c http://dszbx01.bue299.comafi.com.ar/zabbix/xcurrent-server-v4.1.1.ta
 COPY ./root /
 
 
-RUN /usr/bin/fix-permissions 
+
 #USER 1000
-#ENTRYPOINT ["/usr/bin/rungrafana"]
-CMD ping localhost
+RUN /usr/bin/fix-permissions 
+ENTRYPOINT ["/usr/bin/runxcurrent"]
+
 

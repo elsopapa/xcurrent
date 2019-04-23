@@ -23,7 +23,8 @@ export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
 export NSS_WRAPPER_PASSWD=/tmp/passwd
 export NSS_WRAPPER_GROUP=/etc/group
 
-chown -R xcurrent $HOME
+chown -R $USERID $HOME
+echo $USERID
 chgrp -R 0 $HOME
 chmod -R g+rw $HOME
 find "$HOME" -type d -exec chmod g+x {} +

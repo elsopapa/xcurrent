@@ -1,2 +1,3 @@
 #!/bin/bash
-exec /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start
+#exec /opt/xcurrent-server-4.1.1-SNAPSHOT/bin/service start
+exec ping localhost
