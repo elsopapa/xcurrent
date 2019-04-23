@@ -24,7 +24,9 @@ export NSS_WRAPPER_PASSWD=/tmp/passwd
 export NSS_WRAPPER_GROUP=/etc/group
 
 chown -R $USER_ID $HOME
-echo $USERID
+echo "------------------"
+echo $USER_ID
+echo "------------------"
 chgrp -R 0 $HOME
 chmod -R g+rw $HOME
 find "$HOME" -type d -exec chmod g+x {} +
